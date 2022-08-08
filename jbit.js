@@ -13,6 +13,7 @@ xhttp.onreadystatechange = function() {
       },
       "57005": function() { return false; } // Terminate signal 0xDEAD. Return bit 0 to terminate program
     };
+    window.jbit = jbit;
   }
 };
 xhttp.open("GET", "https://raw.githubusercontent.com/Nyanport/jpure/main/src/jpure.js", true);
