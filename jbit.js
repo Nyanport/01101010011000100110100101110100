@@ -16,6 +16,7 @@ xhttp.onreadystatechange = function() {
       "33": function(param1) { 
         param1 = param1.split('');
         memory.push(parseInt(jpure.maximise(param1[0]), 2)+parseInt(jpure.maximise(param1[0]), 2)); 
+        return true;
       }
     };
     window.jbit = jbit;
