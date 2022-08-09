@@ -12,7 +12,7 @@ xhttp.onreadystatechange = function() {
           if(!result) { console.warn("%cTermination OPCODE ran. OPCODE is 0x" + ("000" + (parseInt( jpure.maximise(bitfunc[0]), 2 )).toString(16).toUpperCase()).slice(-4), "font-size: 30pt; font-family: \'Ubuntu\', \'Arial\';"); return; } // Every function must return a result.
         }
       },
-      "57005": function() { return false; } // Terminate signal 0xDEAD. Return bit 0 to terminate program
+      "57005": function() { return false; }, // Terminate signal 0xDEAD. Return bit 0 to terminate program
       "33": function(param1) { 
         param1 = param1.split('');
         memory.push(parseInt(jpure.maximise(param1[0]), 2)+parseInt(jpure.maximise(param1[0]), 2)); 
