@@ -15,22 +15,74 @@ xhttp.onreadystatechange = function() {
       "57005": function() { return false; }, // Terminate signal 0xDEAD. Return bit 0 to terminate program
       "33": function(param1) { // Add
         param1 = param1.split('');
-        this.memory.push(parseInt(jpure.maximise(param1[0]), 2)+parseInt(jpure.maximise(param1[1]), 2)); 
+        var resultNum = 0;
+        for(let i = 0; i < param1.length; i++) {
+          resultNum += parseInt(jpure.maximise(param1[i]), 2);
+        }
+        this.memory.push(resultNum);
+        return true;
+      },
+      "34": function(param1) { // Add (memory addresses)
+        param1 = param1.split('');
+        var resultNum = 0;
+        for(let i = 0; i < param1.length; i++) {
+          resultNum += this.memory[parseInt(jpure.maximise(param1[i]), 2)];
+        }
+        this.memory.push(resultNum);
         return true;
       },
       "44": function(param1) { // Minus
         param1 = param1.split('');
-        this.memory.push(parseInt(jpure.maximise(param1[0]), 2)-parseInt(jpure.maximise(param1[1]), 2)); 
+        var resultNum = 0;
+        for(let i = 0; i < param1.length; i++) {
+          resultNum -= parseInt(jpure.maximise(param1[i]), 2);
+        }
+        this.memory.push(resultNum);
+        return true;
+      },
+      "45": function(param1) { // Minus (memory addresses)
+        param1 = param1.split('');
+        var resultNum = 0;
+        for(let i = 0; i < param1.length; i++) {
+          resultNum -= this.memory[parseInt(jpure.maximise(param1[i]), 2)];
+        }
+        this.memory.push(resultNum);
         return true;
       },
       "55": function(param1) { // Times
         param1 = param1.split('');
-        this.memory.push(parseInt(jpure.maximise(param1[0]), 2)*parseInt(jpure.maximise(param1[1]), 2)); 
+        var resultNum = 0;
+        for(let i = 0; i < param1.length; i++) {
+          resultNum *= parseInt(jpure.maximise(param1[i]), 2);
+        }
+        this.memory.push(resultNum);
+        return true;
+      },
+      "56": function(param1) { // Times (memory addresses)
+        param1 = param1.split('');
+        var resultNum = 0;
+        for(let i = 0; i < param1.length; i++) {
+          resultNum *= this.memory[parseInt(jpure.maximise(param1[i]), 2)];
+        }
+        this.memory.push(resultNum);
         return true;
       },
       "66": function(param1) { // Divide
         param1 = param1.split('');
-        this.memory.push(parseInt(jpure.maximise(param1[0]), 2)/parseInt(jpure.maximise(param1[1]), 2)); 
+        var resultNum = 0;
+        for(let i = 0; i < param1.length; i++) {
+          resultNum *= parseInt(jpure.maximise(param1[i]), 2);
+        }
+        this.memory.push(resultNum);
+        return true;
+      },
+      "67": function(param1) { // Divide (memory addresses)
+        param1 = param1.split('');
+        var resultNum = 0;
+        for(let i = 0; i < param1.length; i++) {
+          resultNum *= this.memory[parseInt(jpure.maximise(param1[i]), 2)];
+        }
+        this.memory.push(resultNum);
         return true;
       }
     };
