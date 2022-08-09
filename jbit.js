@@ -3,6 +3,7 @@ xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     eval(this.responseText);
     var jbit = {
+      "memory": [],
       "runBitProgram": function(bitprogram) {
         var bitarray = bitprogram.split(String.fromCharCode(parseInt(0xFEFF)));
         for(let i = 0; i < bitarray.length; i++) {
@@ -12,6 +13,10 @@ xhttp.onreadystatechange = function() {
         }
       },
       "57005": function() { return false; } // Terminate signal 0xDEAD. Return bit 0 to terminate program
+      "33": function(param1) { 
+        param1 = param1.split('');
+        memory.push(parseInt(jpure.maximise(param1[0]), 2)+parseInt(jpure.maximise(param1[0]), 2)); 
+      }
     };
     window.jbit = jbit;
   }
