@@ -13,9 +13,24 @@ xhttp.onreadystatechange = function() {
         }
       },
       "57005": function() { return false; }, // Terminate signal 0xDEAD. Return bit 0 to terminate program
-      "33": function(param1) { 
+      "33": function(param1) { // Add
         param1 = param1.split('');
-        memory.push(parseInt(jpure.maximise(param1[0]), 2)+parseInt(jpure.maximise(param1[0]), 2)); 
+        memory.push(parseInt(jpure.maximise(param1[0]), 2)+parseInt(jpure.maximise(param1[1]), 2)); 
+        return true;
+      },
+      "44": function(param1) { // Minus
+        param1 = param1.split('');
+        memory.push(parseInt(jpure.maximise(param1[0]), 2)-parseInt(jpure.maximise(param1[1]), 2)); 
+        return true;
+      },
+      "55": function(param1) { // Times
+        param1 = param1.split('');
+        memory.push(parseInt(jpure.maximise(param1[0]), 2)*parseInt(jpure.maximise(param1[1]), 2)); 
+        return true;
+      },
+      "66": function(param1) { // Divide
+        param1 = param1.split('');
+        memory.push(parseInt(jpure.maximise(param1[0]), 2)/parseInt(jpure.maximise(param1[1]), 2)); 
         return true;
       }
     };
