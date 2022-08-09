@@ -85,7 +85,7 @@ xhttp.onreadystatechange = function() {
         this.memory.push(resultNum);
         return true;
       },
-      "1": function(param1) { this.memory.push(param1); } // Memorize function
+      "1": function(param1) { this.memory.push(parseInt(jpure.maximise(param1), 2)); } // Memorize function
     };
     window.jbit = jbit;
   }
